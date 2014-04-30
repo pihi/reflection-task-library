@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ReflectionTaskLibrary</id>
+    <version>0.1.1</version>
+    <title>Reflection Task Library</title>
+    <authors>P. Isaac Hildebrandt</authors>
+    <owners>P. Isaac Hildebrandt</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Common reflection tasks implemented as extension methods.</description>
+    <releaseNotes>Initial Release</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>Reflection Extension</tags>
+	
+  </metadata>
+	<files>
+		<file src="bin\Release\ReflectionTaskLibrary.dll" target="lib\net45" />
+	</files>
+</package>
