@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Object\Object.GetAll.cs" />
+    <Compile Include="Generic\Generic.GetExpression.cs" />
     <Compile Include="Object\Object.GetValue.cs" />
     <Compile Include="Object\Object.Is.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

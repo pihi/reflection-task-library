@@ -53,6 +53,7 @@
     <Compile Include="Object\Object.GetAll.Test.cs" />
     <Compile Include="Object\Object.GetValue.Test.cs" />
     <Compile Include="Object\Object.Is.Test.cs" />
+    <Compile Include="Generic\Generic.GetExpression.Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Type\Type.Is.Test.cs" />
   </ItemGroup>
@@ -62,6 +63,7 @@
       <Name>ReflectionTaskLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
