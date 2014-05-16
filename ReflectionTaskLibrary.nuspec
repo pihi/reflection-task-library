@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ReflectionTaskLibrary</id>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <title>Reflection Task Library</title>
     <authors>P. Isaac Hildebrandt</authors>
     <owners>P. Isaac Hildebrandt</owners>
@@ -14,6 +14,7 @@
 	
   </metadata>
 	<files>
-		<file src="bin\Release\ReflectionTaskLibrary.dll" target="lib\net45" />
+		<file src="ReflectionTaskLibrary\bin\Release\ReflectionTaskLibrary.dll" target="lib\net45" />
+		<file src="ReflectionTaskLibrary\bin\Release\ReflectionTaskLibrary.pdb" target="lib\net45" />
 	</files>
 </package>
