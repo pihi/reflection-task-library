@@ -10,14 +10,13 @@ namespace PIHI.ReflectionTaskLibrary
 {
     public static class ObjectGetValue
     {
-        public static object GetValue(this object ext, string propertyOrField,
-            BindingFlags binding = BindingFlags.Public | BindingFlags.Instance)
+        public static object GetValue(this object ext, string propertyOrField)
         {
             if (String.IsNullOrWhiteSpace(propertyOrField))
                 throw new ArgumentNullException("propertyOrField", "Null or Empty string was passed");
 
             object value;
-            var pi = ext.GetType().GetProperty(propertyOrField, binding);
+            var pi = ext.GetType().GetProperty(propertyOrField);
 
             if (pi != null)
             {
@@ -26,7 +25,7 @@ namespace PIHI.ReflectionTaskLibrary
             // Not a property, check fields
             else
             {
-                var fi = ext.GetType().GetField(propertyOrField, binding);
+                var fi = ext.GetType().GetField(propertyOrField);
 
                 // Not a field, return default
                 if (fi == null) return null;
@@ -37,10 +36,9 @@ namespace PIHI.ReflectionTaskLibrary
             return value;
         }
 
-        public static TType GetValue<TType>(this object ext, string propertyOrField, 
-            BindingFlags binding = BindingFlags.Public | BindingFlags.Instance)
+        public static TType GetValue<TType>(this object ext, string propertyOrField)
         {
-            var value = GetValue(ext, propertyOrField, binding);
+            var value = GetValue(ext, propertyOrField);
             if (value == null) return default(TType);
             return (TType) value;
         }

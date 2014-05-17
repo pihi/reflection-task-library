@@ -43,6 +43,7 @@
     <Compile Include="Generic\Generic.GetExpression.cs" />
     <Compile Include="Object\Object.GetValue.cs" />
     <Compile Include="Object\Object.Is.cs" />
+    <Compile Include="Object\Object.SetValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Type\Type.GetProperties.cs" />
     <Compile Include="Type\Type.Is.cs" />
