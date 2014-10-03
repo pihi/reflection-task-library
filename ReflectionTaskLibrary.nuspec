@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ReflectionTaskLibrary</id>
-    <version>0.1.4</version>
+    <version>0.3.1</version>
     <title>Reflection Task Library</title>
     <authors>P. Isaac Hildebrandt</authors>
     <owners>P. Isaac Hildebrandt</owners>

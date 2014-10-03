@@ -10,14 +10,15 @@ namespace PIHI.ReflectionTaskLibrary
     {
         public static TResult Invoke<TResult>(this object ext, string name, params object[] arguments)
         {
-            var types = new Type[arguments.Length];
-            for (var i = 0; i < arguments.Length; i++)
-            {
-                types[i] = arguments[i].GetType();
-            }
+            var argTypes = arguments.Select(a => a.GetType()).ToArray();
+            return Invoke<TResult>(ext, name, argTypes, arguments);
+        }
 
-            var method = ext.GetType().GetMethod(name, types);
-            return (TResult) method.Invoke(ext, arguments);
+        public static TResult Invoke<TResult>(this object ext, string name, Type[] argTypes, params object[] arguments)
+        {
+            var method = ext.GetType().GetMethod(name, argTypes);
+            if (method == null) throw new NotImplementedException();
+            return (TResult)method.Invoke(ext, arguments);
         }
     }
 }
