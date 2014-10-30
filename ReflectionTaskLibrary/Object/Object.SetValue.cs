@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace PIHI.ReflectionTaskLibrary
 {
@@ -11,7 +11,15 @@ namespace PIHI.ReflectionTaskLibrary
     {
         public static void SetValue<TValue>(this object ext, string propertyOrField, TValue value)
         {
-            if (String.IsNullOrWhiteSpace(propertyOrField))
+            bool emptyArg = true;
+
+#if FRAMEWORK_35
+            emptyArg = Regex.Match(propertyOrField, "^\\s*$").Success;
+#endif
+#if FRAMEWORK_45
+            emptyArg = String.IsNullOrWhiteSpace(propertyOrField);
+#endif
+            if (emptyArg)
                 throw new ArgumentNullException("propertyOrField", "Null or Empty string was passed");
 
             var pi = ext.GetType().GetProperty(propertyOrField);
@@ -28,7 +36,7 @@ namespace PIHI.ReflectionTaskLibrary
 
         public static void SetValue<TValue>(this object ext, PropertyInfo property, TValue value)
         {
-            property.SetValue(ext, value);
+            property.SetValue(ext, value, null);
         }
 
         public static void SetValue<TValue>(this object ext, FieldInfo field, TValue value)

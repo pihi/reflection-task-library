@@ -4,7 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
+
+#if FRAMEWORK_35
+using System.Text.RegularExpressions;
+#endif
 
 namespace PIHI.ReflectionTaskLibrary
 {
@@ -12,7 +15,17 @@ namespace PIHI.ReflectionTaskLibrary
     {
         public static object GetValue(this object ext, string propertyOrField)
         {
-            if (String.IsNullOrWhiteSpace(propertyOrField))
+            bool emptyArg = true;
+
+#if FRAMEWORK_35
+            emptyArg = propertyOrField == null || Regex.Match(propertyOrField, "^\\s*$").Success;
+#endif
+
+#if FRAMEWORK_45
+            emptyArg = String.IsNullOrWhiteSpace(propertyOrField);
+#endif
+
+            if (emptyArg)
                 throw new ArgumentNullException("propertyOrField", "Null or Empty string was passed");
 
             object value;
@@ -20,7 +33,7 @@ namespace PIHI.ReflectionTaskLibrary
 
             if (pi != null)
             {
-                value = pi.GetValue(ext);
+                value = pi.GetValue(ext, null);
             }
             // Not a property, check fields
             else
@@ -57,14 +70,14 @@ namespace PIHI.ReflectionTaskLibrary
 
         public static object GetValue(this object ext, PropertyInfo pi)
         {
-            return pi.GetValue(ext);
+            return pi.GetValue(ext, null);
         }
 
         public static TType GetValue<TType>(this object ext, PropertyInfo pi)
         {
             var value = GetValue(ext, pi);
             if (value == null) return default(TType);
-            return (TType) pi.GetValue(ext);
+            return (TType) pi.GetValue(ext, null);
         }
     }
 }

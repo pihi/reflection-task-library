@@ -15,7 +15,9 @@
     <licenseUrl>https://raw.githubusercontent.com/pihi/reflection-task-library/0.1/LICENSE</licenseUrl>
   </metadata>
 	<files>
-		<file src="ReflectionTaskLibrary\bin\Release\ReflectionTaskLibrary.dll" target="lib\net45" />
-		<file src="ReflectionTaskLibrary\bin\Release\ReflectionTaskLibrary.pdb" target="lib\net45" />
+    <file src="ReflectionTaskLibrary\bin\35\Release\ReflectionTaskLibrary.dll" target="lib\net35" />
+    <file src="ReflectionTaskLibrary\bin\35\Release\ReflectionTaskLibrary.pdb" target="lib\net35" />
+		<file src="ReflectionTaskLibrary\bin\45\Release\ReflectionTaskLibrary.dll" target="lib\net45" />
+		<file src="ReflectionTaskLibrary\bin\45\Release\ReflectionTaskLibrary.pdb" target="lib\net45" />
 	</files>
 </package>
